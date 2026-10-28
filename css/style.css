@@ -1,0 +1,137 @@
+/* Fonts: Figtree + Fraunces (lazy-loaded by unicode-range) */
+@font-face{font-family:Figtree;font-style:normal;font-weight:300 900;font-display:swap;src:url(../fonts/400bf8aa837fcb7e-s.19g-lkcx7iw64.woff2) format("woff2");unicode-range:U+100-2BA,U+2BD-2C5,U+2C7-2CC,U+2CE-2D7,U+2DD-2FF,U+304,U+308,U+329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Figtree;font-style:normal;font-weight:300 900;font-display:swap;src:url(../fonts/f7aa21714c1c53f8-s.p.0-95eo-012xnf.woff2) format("woff2");unicode-range:U+??,U+131,U+152-153,U+2BB-2BC,U+2C6,U+2DA,U+2DC,U+304,U+308,U+329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Figtree Fallback;src:local(Arial);ascent-override:94.32%;descent-override:24.82%;line-gap-override:0.0%;size-adjust:100.72%}
+@font-face{font-family:Fraunces;font-style:normal;font-weight:100 900;font-display:swap;src:url(../fonts/1e219c03c996efbd-s.2qo5md4hn_gum.woff2) format("woff2");unicode-range:U+102-103,U+110-111,U+128-129,U+168-169,U+1A0-1A1,U+1AF-1B0,U+300-301,U+303-304,U+308-309,U+323,U+329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:Fraunces;font-style:normal;font-weight:100 900;font-display:swap;src:url(../fonts/b35b0dbffda7f2c4-s.1d9rlgtqyj_-l.woff2) format("woff2");unicode-range:U+100-2BA,U+2BD-2C5,U+2C7-2CC,U+2CE-2D7,U+2DD-2FF,U+304,U+308,U+329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Fraunces;font-style:normal;font-weight:100 900;font-display:swap;src:url(../fonts/03bda585a99c6450-s.p.32sris142tqlb.woff2) format("woff2");unicode-range:U+??,U+131,U+152-153,U+2BB-2BC,U+2C6,U+2DA,U+2DC,U+304,U+308,U+329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Fraunces Fallback;src:local(Times New Roman);ascent-override:84.71%;descent-override:22.09%;line-gap-override:0.0%;size-adjust:115.45%}
+
+/* Fonts: Redaction (intro animation) */
+@font-face{font-family:"Redaction 100";src:url(../fonts/Redaction_100-Bold.woff2) format("woff2");font-weight:700;font-style:normal;font-display:block}
+@font-face{font-family:"Redaction 100";src:url(../fonts/Redaction_100-Regular.woff2) format("woff2");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"Redaction 10";src:url(../fonts/Redaction_10-Regular.woff2) format("woff2");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"Redaction 70";src:url(../fonts/Redaction_70-Bold.woff2) format("woff2");font-weight:700;font-style:normal;font-display:block}
+@font-face{font-family:"Redaction";src:url(../fonts/Redaction-Regular.woff2) format("woff2");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"Redaction 35";src:url(../fonts/Redaction_35-Bold.woff2) format("woff2");font-weight:700;font-style:normal;font-display:block}
+@font-face{font-family:"Redaction 20";src:url(../fonts/Redaction_20-Regular.woff2) format("woff2");font-weight:400;font-style:normal;font-display:block}
+
+:root{
+  --background:#0a0a0a;
+  --foreground:#fff;
+  --muted:#8c8c8c;
+  --line:#262626;
+  --accent:#4a4a4a;
+  --accent-soft:#171717;
+  --font-figtree:"Figtree","Figtree Fallback";
+  --font-fraunces:"Fraunces","Fraunces Fallback";
+  color-scheme:dark;
+}
+
+/* ---------- Base ---------- */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;line-height:1.5}
+body{
+  min-height:100dvh;
+  display:flex;
+  flex-direction:column;
+  background:var(--background);
+  color:var(--foreground);
+  font-family:var(--font-figtree),sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2{font-family:var(--font-fraunces),serif;font-weight:inherit}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:2px solid var(--foreground);outline-offset:3px;border-radius:2px}
+ul{list-style:none}
+svg{display:block}
+[hidden]{display:none!important}
+
+/* ---------- Layout ---------- */
+.page{
+  width:100%;
+  max-width:36rem;
+  margin-inline:auto;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  padding:6rem 1.5rem 4rem;
+}
+main{flex:1}
+
+.top{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+.top-text{min-width:0;flex:1}
+.name{font-size:1.5rem;line-height:1.25}
+.handle{margin-top:.125rem;font-family:var(--font-fraunces),serif;font-size:1.125rem;line-height:1.5;color:var(--muted)}
+
+.social{display:flex;align-items:center;gap:.75rem;padding-top:.25rem;color:var(--muted)}
+.social a{transition:color .15s}
+.social a:hover{color:var(--foreground)}
+.social svg{width:18px;height:18px}
+
+.about{margin-top:3rem}
+.about h2{margin-bottom:.75rem;font-size:1.25rem;line-height:1.4}
+.about p{line-height:1.625;color:var(--muted)}
+
+.site-footer{margin-top:5rem;padding-top:1.5rem;border-top:1px solid var(--line);font-size:.875rem;color:var(--muted)}
+.site-footer .row{display:flex;align-items:center;justify-content:space-between}
+.site-footer nav{display:flex;gap:1rem}
+.site-footer a:hover{color:var(--foreground)}
+
+.grain{
+  position:fixed;inset:0;z-index:9998;pointer-events:none;opacity:.045;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:240px 240px;
+}
+
+@media (min-width:40rem){.page{padding-top:8rem}}
+
+/* ---------- Intro / motion ---------- */
+html.js:not(.ready) body{visibility:hidden}
+html.intro-lock{overflow:hidden}
+
+@keyframes m-fallback{to{opacity:1}}
+html.js [data-m]{opacity:0;animation:m-fallback 0s 8s forwards}
+html.js [data-hero]{
+  font-family:"Redaction 100",sans-serif!important;
+  font-weight:700!important;
+  font-size:clamp(4.8rem,44.8vw,16rem)!important;
+  white-space:nowrap;
+  will-change:font-size;
+}
+
+.rw{display:inline-block;white-space:nowrap;margin-right:.25em;will-change:transform}
+.rw:last-child{margin-right:0}
+.rc{display:inline-block}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
+  html.js [data-m]{opacity:1;animation:none}
+}
+
+
+/* ---------- Projects / Work tabs ---------- */
+.tabs-section{margin-top:3rem}
+.tabs{display:flex;gap:1rem;margin-bottom:1.5rem;font-size:.875rem}
+.tabs a{position:relative;color:var(--muted);transition:color .15s}
+.tabs a:hover,.tabs a[aria-current=page]{color:var(--foreground)}
+.tabs a span{position:absolute;left:0;right:0;bottom:-.25rem;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(.26,1,.6,1)}
+.tabs a[aria-current=page] span{transform:scaleX(1)}
+.panel[hidden]{display:none}
+
+.entries{margin-inline:-.75rem;display:flex;flex-direction:column;gap:.25rem}
+.entries a{display:block;padding:.625rem .75rem;border-radius:.5rem}
+.e-title{display:block;color:var(--foreground)}
+.e-desc{display:block;margin-top:.125rem;font-size:.875rem;line-height:1.5;color:var(--muted)}
+
+.pillable{position:relative;isolation:isolate}
+.pill{position:absolute;top:0;left:0;z-index:-1;pointer-events:none;opacity:0;border-radius:.5rem;background:var(--accent-soft);border:1px solid var(--line);transition:opacity .15s ease-out;will-change:transform,width,height}
+
+/* ---------- Print ---------- */
+@media print{
+  @page{size:A4;margin:10mm 15mm}
+  body{background:#fff;color:#000}
+  .page{max-width:none;padding:0}
+  .handle,.about p{color:#444}
+  .grain,.social,.site-footer,.tabs{display:none}
+}
