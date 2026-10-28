@@ -23,5 +23,6 @@ Hey there! Welcome to the source code for my personal website. It's a clean, sim
 ---
 ### ⭐ Special thanks to
 
-1. <a herf="https://github.com/n2aoi">n2aoi</a>
+1. <a herf="https://github.com/n2aoi" target="_blank">n2aoi</a>
+
 2. 
