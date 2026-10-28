@@ -11,16 +11,9 @@ Hi! This is the source code of my personal website. It's a clean, simple modern 
 ## 🛠️ Tech Stack
 - Nvim (editor)
 - HTML & CSS & JavaScript (base)
-- Vercel or Cloudflare Pages (host)
-
-## 💻 How to run it locally
-
-1. Clone this repo:
-   ```bash
-   git clone https://github.com/your-username/My-Website-v2.git
-   ```
+- Vercel (host)
 
 ---
 ### ♥️ Special thanks to
 
-<a href="https://github.com/n2aoi" target="_blank" rel="noopener noreferrer">n2aoi:</a> helper and Contributors (and my twin :D)
+<a href="https://github.com/n2aoi" target="_blank" rel="noopener noreferrer">n2aoi:</a> helper and contributor (and my twin :D)
