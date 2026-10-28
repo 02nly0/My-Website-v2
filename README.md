@@ -21,6 +21,6 @@ Hi! This is the source code of my personal website. It's a clean, simple modern 
    ```
 
 ---
-### ⭐ Special thanks to
+### ♥️ Special thanks to
 
-1. <a herf="https://github.com/n2aoi" target="_blank">n2aoi</a>
+1. <a herf="https://github.com/n2aoi">n2aoi</a>
