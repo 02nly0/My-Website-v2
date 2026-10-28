@@ -4,6 +4,8 @@
 
 Hey there! Welcome to the source code for my personal website. It's a clean, simple space where I share my work and projects.
 
+<img src="https://i.postimg.cc/FHsCZ97x/Picsart-26-10-28-21-32-10-418.png" width="400" alt="opengraph-image" >
+
 </div>
 
 ## ✨ What's inside?
