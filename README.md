@@ -8,10 +8,10 @@ Hi! This is the source code of my personal website. It's a clean, simple modern 
 
 </div>
 
-## 🛠️ Built with
-
-- **HTML5 & CSS3**
-- **JavaScript**
+## 🛠️ Tech Stack
+- Nvim (editor)
+- HTML & CSS & JavaScript (base)
+- Vercel or Cloudflare Pages (host)
 
 ## 💻 How to run it locally
 
