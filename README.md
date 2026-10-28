@@ -19,7 +19,6 @@ Hey there! Welcome to the source code for my personal website. It's a clean, sim
    ```bash
    git clone https://github.com/your-username/My-Website-v2.git
    ```
-2. Just open `index.html` in your browser (or use VS Code Live Server). That's it!
 
 ---
 Feel free to star ⭐️ the repo if you like it!
