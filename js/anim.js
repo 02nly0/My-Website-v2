@@ -22,20 +22,18 @@
       tabs: 0.98,
       panel: 0.98
     },
-    gap: { icons: 70, about: 70, letters: 60, tabs: 70, panel: 90 },
-
+    gap: { icons: 100, about: 100, letters: 80, tabs: 100, panel: 130 },
     speed: {
-      sub: 800,      
-      icons: 900,
-      about: 900,
-      footer: 900,
-      tabs: 900,
-      panel: 900
+      sub: 1000,
+      icons: 1100,
+      about: 1100,
+      footer: 1100,
+      tabs: 1100,
+      panel: 1100
     },
-
     ease: EASE,
-    rise: 10,
-    blur: 5
+    rise: 8,
+    blur: 4
   };
 
   const STEPS = [
@@ -57,7 +55,7 @@
 
   const clamp = (n, lo, hi) => Math.max(lo, Math.min(n, hi));
 
-  const enter = (el, duration = 900) => {
+  const enter = (el, duration = 1100) => {
     if (reduce) {
       el.removeAttribute('data-m');
       return;
@@ -85,7 +83,7 @@
       const frag = document.createDocumentFragment();
       parts.forEach((word) => {
         const w = document.createElement('span');
-        w.className = 'rw'
+        w.className = 'rw';
         w.setAttribute('aria-hidden', 'true');
         words.push(
           [...word].map((ch) => {
@@ -123,7 +121,7 @@
         anim.onfinish = () => anim.cancel();
       });
     });
-  };  
+  };
 
   const textWidth = (el) => {
     const range = document.createRange();
@@ -199,8 +197,8 @@
   };
 
   const runHero = () => {
-    const k = 22;
-    const c = 12;
+    const k = 15;
+    const c = 10.5;
     const m = 3;
     let x = 0;
     let v = 0;
@@ -309,5 +307,12 @@
       const a = e.target.closest('a');
       if (a && ul.contains(a)) to(a);
     });
-    ul.addEventListener('mouseleave
-                        
+    ul.addEventListener('mouseleave', () => { shown = false; el.style.opacity = '0'; });
+  };
+  document.querySelectorAll('.entries').forEach(makePill);
+
+  if (sub) prepLetters(sub);
+
+  const loads = STEPS.filter(Boolean).map((s) => document.fonts.load(`${s.w} 32px "${s.f}"`, '0nly0'));
+  Promise.race([Promise.all(loads), new Promise((resolve) => setTimeout(resolve, 1500))]).then(start, start);
+})();
