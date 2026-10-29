@@ -19,39 +19,30 @@
      the hero finishes.
      ===================================================== */
   const OTHERS = {
-    // WHEN each group appears, measured on the 0nly0 animation itself:
-    //   0 = the moment it starts,  1 = the moment it reaches its final font.
-    //   0.98 ≈ the instant it visually lands (default)
-    //   lower  = appears while 0nly0 is still finishing
-    //   1      = right when it reaches the end
     appear: {
-      sub: 0.98,     // "ot9h"
-      icons: 0.98,   // GitHub / Instagram
-      about: 0.98,   // paragraph
-      footer: 0.98,  // footer
-      tabs: 0.98,    // projects / work tabs
-      panel: 0.98    // entries under the tabs
+      sub: 0.98,
+      icons: 0.98,
+      about: 0.98,
+      footer: 0.98,
+      tabs: 0.98,
+      panel: 0.98
     },
-    // gap between items of the same group (ms)
-    gap: { icons: 60, about: 60, letters: 50, tabs: 60, panel: 80 },
+    gap: { icons: 100, about: 100, letters: 80, tabs: 100, panel: 120 },
 
-    // HOW FAST each one animates once it has appeared: ms per fade.
     speed: {
-      sub: 600,      // each "ot9h" letter
-      icons: 700,
-      about: 700,
-      footer: 700,
-      tabs: 700,
-      panel: 700
+      sub: 1000,      
+      icons: 1200,
+      about: 1200,
+      footer: 1200,
+      tabs: 1200,
+      panel: 1200
     },
 
-    // look of the motion
     ease: EASE,
-    rise: 8,         // px travelled upward
-    blur: 4          // px of starting blur
+    rise: 12,
+    blur: 6
   };
 
-  // Hero typeface steps (last one = final site font) and matching scale.
   const STEPS = [
     { f: 'Redaction 50', w: 700 },
     { f: 'Redaction 10', w: 400 },
@@ -72,7 +63,7 @@
   const clamp = (n, lo, hi) => Math.max(lo, Math.min(n, hi));
 
   /* ---------- Fade-in helper ---------- */
-  const enter = (el, duration = 700) => {
+  const enter = (el, duration = 1200) => {
     if (reduce) {
       el.removeAttribute('data-m');
       return;
@@ -141,7 +132,7 @@
     });
   };  
 
-/* ---------- Hero ---------- */
+  /* ---------- Hero ---------- */
   const textWidth = (el) => {
     const range = document.createRange();
     range.selectNodeContents(el);
@@ -174,7 +165,6 @@
     px = Math.max(px, MIN_PX);
     hero.style.setProperty('font-size', px + 'px', 'important');
 
-    // Never let the hero overflow the viewport.
     if (px > MIN_PX + 1) {
       const avail = innerWidth - hero.getBoundingClientRect().left - 24;
       const w = textWidth(hero);
@@ -206,7 +196,6 @@
     footer: () => footer && enter(footer, OTHERS.speed.footer)
   };
 
-  // Fires every group whose "appear" point has been reached by the hero.
   const reveal = (progress = 1) => {
     doc.classList.remove('intro-lock');
     Object.keys(groups).forEach((g) => {
@@ -218,11 +207,10 @@
     revealed = Object.values(fired).every(Boolean);
   };
 
-  // Spring simulation driving the hero through STEPS.
   const runHero = () => {
-    const k = 30; // stiffness
-    const c = 15; // damping
-    const m = 3; // mass
+    const k = 12;
+    const c = 14;
+    const m = 3;
     let x = 0;
     let v = 0;
     let last = performance.now();
@@ -280,7 +268,6 @@
   };
   tabs.forEach((a, i) => a.addEventListener('click', (e) => { e.preventDefault(); show(i); }));
 
-  // Sliding hover pill behind the entries.
   const makePill = (ul) => {
     ul.classList.add('pillable');
     const el = document.createElement('div');
@@ -338,7 +325,7 @@
 
   if (sub) prepLetters(sub);
 
-  // Wait (max 1.5s) for the intro fonts so the animation doesn't start with a fallback face.
   const loads = STEPS.filter(Boolean).map((s) => document.fonts.load(`${s.w} 32px "${s.f}"`, '0nly0'));
   Promise.race([Promise.all(loads), new Promise((resolve) => setTimeout(resolve, 1500))]).then(start, start);
 })();
+                                
