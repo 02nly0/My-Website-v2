@@ -13,11 +13,6 @@
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const EASE = 'cubic-bezier(.2,.65,.3,.9)';
 
-  /* =====================================================
-     OTHER ELEMENTS (everything except the 0nly0 hero)
-     All times in milliseconds. They start the moment
-     the hero finishes.
-     ===================================================== */
   const OTHERS = {
     appear: {
       sub: 0.98,
@@ -27,20 +22,20 @@
       tabs: 0.98,
       panel: 0.98
     },
-    gap: { icons: 100, about: 100, letters: 80, tabs: 100, panel: 120 },
+    gap: { icons: 70, about: 70, letters: 60, tabs: 70, panel: 90 },
 
     speed: {
-      sub: 1000,      
-      icons: 1200,
-      about: 1200,
-      footer: 1200,
-      tabs: 1200,
-      panel: 1200
+      sub: 800,      
+      icons: 900,
+      about: 900,
+      footer: 900,
+      tabs: 900,
+      panel: 900
     },
 
     ease: EASE,
-    rise: 12,
-    blur: 6
+    rise: 10,
+    blur: 5
   };
 
   const STEPS = [
@@ -62,8 +57,7 @@
 
   const clamp = (n, lo, hi) => Math.max(lo, Math.min(n, hi));
 
-  /* ---------- Fade-in helper ---------- */
-  const enter = (el, duration = 1200) => {
+  const enter = (el, duration = 900) => {
     if (reduce) {
       el.removeAttribute('data-m');
       return;
@@ -81,7 +75,6 @@
     };
   };
 
-  /* ---------- Letter-by-letter reveal ---------- */
   const prepLetters = (el) => {
     const words = [];
     el.setAttribute('aria-label', el.textContent.replace(/\s+/g, ' ').trim());
@@ -132,7 +125,6 @@
     });
   };  
 
-  /* ---------- Hero ---------- */
   const textWidth = (el) => {
     const range = document.createRange();
     range.selectNodeContents(el);
@@ -181,7 +173,6 @@
     hero.style.removeProperty('font-size');
   };
 
-  /* ---------- Sequence ---------- */
   const fired = { sub: false, icons: false, about: false, tabs: false, panel: false, footer: false };
   const groups = {
     sub: () => sub && playLetters(sub),
@@ -208,8 +199,8 @@
   };
 
   const runHero = () => {
-    const k = 12;
-    const c = 14;
+    const k = 22;
+    const c = 12;
     const m = 3;
     let x = 0;
     let v = 0;
@@ -251,7 +242,6 @@
     runHero();
   };
 
-  /* ---------- Tabs (projects / work) ---------- */
   const show = (i) => {
     if (i === current || !panels[i]) return;
     current = i;
@@ -319,13 +309,5 @@
       const a = e.target.closest('a');
       if (a && ul.contains(a)) to(a);
     });
-    ul.addEventListener('mouseleave', () => { shown = false; el.style.opacity = '0'; });
-  };
-  document.querySelectorAll('.entries').forEach(makePill);
-
-  if (sub) prepLetters(sub);
-
-  const loads = STEPS.filter(Boolean).map((s) => document.fonts.load(`${s.w} 32px "${s.f}"`, '0nly0'));
-  Promise.race([Promise.all(loads), new Promise((resolve) => setTimeout(resolve, 1500))]).then(start, start);
-})();
-                                
+    ul.addEventListener('mouseleave
+                        
